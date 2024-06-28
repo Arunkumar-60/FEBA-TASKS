@@ -3,7 +3,7 @@ import json
 from datetime import datetime, timedelta, timezone
 
 time = 20 # in minutes
-instance_ids = ['i-0d3420ecbbacdf631']  # Replace with your instance IDs
+instance_ids = ['']  # Replace with your instance IDs
 
 # change region_ID if necessary
 region_id = "ap-south-1"

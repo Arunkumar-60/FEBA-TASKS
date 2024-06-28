@@ -1,6 +1,14 @@
 **Instructions to make the automated snapshot with lifespan in AWS (for
 backup).**
 
+# non-admin (IAM user):
+## policies:
+policy.json
+
+create a role , with name (snapshot_role_for_lambda)
+<!-- polices are to be updated and json format for policies are yet to be updated -->
+
+
 **[PROCEDURE:]{.underline}**
 
 

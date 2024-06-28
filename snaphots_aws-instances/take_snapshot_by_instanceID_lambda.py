@@ -63,7 +63,7 @@ def get_volume_ids(instance_id):
 
 def create_snapshot(volume_id):
     response = ec2.create_snapshot(
-        Description='Phase-1 of automating snapshots(checking execution policies)',
+        Description='Phase-2 of automating snapshots(checking execution policies done => IAM role policies check)',
         VolumeId=volume_id
     )
     snapshot_id = response["SnapshotId"]
