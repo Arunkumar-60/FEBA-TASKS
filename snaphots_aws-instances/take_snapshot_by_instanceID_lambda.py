@@ -3,7 +3,7 @@ import json
 import time
 
 region_id = "ap-south-1"
-instances = [''] #instance ID goes here
+instances = ['i-0d3420ecbbacdf631']
 ec2 = boto3.client('ec2', region_name=region_id)
 
 def lambda_handler(event, context):
@@ -21,7 +21,7 @@ def lambda_handler(event, context):
             wait_for_snapshots(snapshot_ids)
             
             start_instance(instance_id)
-            wait_for_instance(instance_id, 'running')
+            # wait_for_instance(instance_id, 'running')
         
         return {
             'statusCode': 200,
@@ -63,7 +63,7 @@ def get_volume_ids(instance_id):
 
 def create_snapshot(volume_id):
     response = ec2.create_snapshot(
-        Description='Phase-2 of automating snapshots(checking execution policies done => IAM role policies check)',
+        Description='Phase-2 of automating snapshots(checked execution policies + => checking triggers)',
         VolumeId=volume_id
     )
     snapshot_id = response["SnapshotId"]
