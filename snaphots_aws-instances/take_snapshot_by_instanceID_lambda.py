@@ -1,6 +1,7 @@
 import boto3
 import json
 import time
+from datetime import datetime
 
 region_id = "ap-south-1"
 instances = ['i-0d3420ecbbacdf631']
@@ -9,13 +10,14 @@ ec2 = boto3.client('ec2', region_name=region_id)
 def lambda_handler(event, context):
     try:
         for instance_id in instances:
+            instance_name = get_instance_name(instance_id)
             stop_instance(instance_id)
             wait_for_instance(instance_id, 'stopped')
             
             volume_ids = get_volume_ids(instance_id)
             snapshot_ids = []
             for volume_id in volume_ids:
-                snapshot_id = create_snapshot(volume_id)
+                snapshot_id = create_snapshot(volume_id, instance_id, instance_name)
                 snapshot_ids.append(snapshot_id)
             
             wait_for_snapshots(snapshot_ids)
@@ -61,13 +63,36 @@ def get_volume_ids(instance_id):
     
     return [volume['VolumeId'] for volume in volumes['Volumes']]
 
-def create_snapshot(volume_id):
+def get_instance_name(instance_id):
+    response = ec2.describe_instances(InstanceIds=[instance_id])
+    reservations = response['Reservations']
+    if reservations:
+        instances = reservations[0]['Instances']
+        if instances:
+            tags = instances[0].get('Tags', [])
+            for tag in tags:
+                if tag['Key'] == 'Name':
+                    return tag['Value']
+    return 'Unknown'
+
+def create_snapshot(volume_id, instance_id, instance_name):
+    date_str = datetime.now().strftime("%d-%b-%Y").upper()
+    snapshot_description = "phase-4 of automation_added name for snapshot"
     response = ec2.create_snapshot(
-        Description='Phase-2 of automating snapshots(checked execution policies + => checking triggers)',
+        Description=snapshot_description,
         VolumeId=volume_id
     )
     snapshot_id = response["SnapshotId"]
-    print(f'Created snapshot {snapshot_id} for volume {volume_id}')
+    print(f'Created snapshot {snapshot_id} for volume {volume_id} with description "{snapshot_description}"')
+    
+    # Set the snapshot name using tags
+    ec2.create_tags(
+        Resources=[snapshot_id],
+        Tags=[
+            {'Key': 'Name', 'Value': f'{date_str}'}
+        ]
+    )
+    
     return snapshot_id
 
 def wait_for_snapshots(snapshot_ids):
