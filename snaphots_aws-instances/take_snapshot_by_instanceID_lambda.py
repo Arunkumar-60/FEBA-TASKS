@@ -77,7 +77,8 @@ def get_instance_name(instance_id):
 
 def create_snapshot(volume_id, instance_id, instance_name):
     date_str = datetime.now().strftime("%d-%b-%Y").upper()
-    snapshot_description = "phase-4 of automation_added name for snapshot"
+    snapshot_name = f'{instance_name}_{date_str}'
+    snapshot_description = "Created by automated snapshot event using lambda function"
     response = ec2.create_snapshot(
         Description=snapshot_description,
         VolumeId=volume_id
@@ -89,7 +90,7 @@ def create_snapshot(volume_id, instance_id, instance_name):
     ec2.create_tags(
         Resources=[snapshot_id],
         Tags=[
-            {'Key': 'Name', 'Value': f'{date_str}'}
+            {'Key': 'Name', 'Value': snapshot_name}
         ]
     )
     
