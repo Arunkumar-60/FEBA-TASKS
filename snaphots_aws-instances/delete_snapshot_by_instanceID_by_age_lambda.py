@@ -1,3 +1,4 @@
+# this program doesnt have timeout issue but, need atleast 1 min execution time
 import boto3
 import json
 from datetime import datetime, timedelta, timezone

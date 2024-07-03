@@ -1,3 +1,4 @@
+# this function execution time depends on the instance type (execute and test the execution file)
 import boto3
 import json
 import time
