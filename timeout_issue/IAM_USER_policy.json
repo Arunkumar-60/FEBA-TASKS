@@ -1,0 +1,51 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:StartInstances",
+                "ec2:StopInstances",
+                "ec2:DescribeVolumes",
+                "ec2:CreateSnapshot",
+                "ec2:DescribeSnapshots",
+                "ec2:DeleteSnapshot",
+                "ec2:DescribeInstanceStatus",
+                "events:PutRule",
+                "events:PutTargets",
+                "iam:CreateRole",
+                "iam:PassRole",
+                "iam:ListRoles",
+                "iam:CreatePolicy",
+                "iam:AttachRolePolicy",
+                "scheduler:ListScheduleGroups",
+                "scheduler:ListSchedules",
+                "scheduler:CreateSchedule",
+                "scheduler:GetSchedule",
+                "lambda:ListFunctions",
+                "lambda:GetFunction",
+                "lambda:ListTags"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:Wait*",
+                "ec2:Get*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "logs:*",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "lambda:*",
+            "Resource": "*"
+        }
+    ]
+}
