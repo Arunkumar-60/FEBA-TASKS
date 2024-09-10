@@ -3,13 +3,12 @@
 1.  install aws-cli on local machine
 2.  aws configure - give configuration details
 3.  run the following code
-    in terminal run commmand
+
+    # in terminal run commmand
 
         aws lambda list-functions --output json > functions.json
 
-then do
-
-# Load the function list - DOwnload the code
+# Load the function list - Download the code
 
     $functions = Get-Content -Raw -Path "functions.json" | ConvertFrom-Json
     $functionsList = $functions.Functions
