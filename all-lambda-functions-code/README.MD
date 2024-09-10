@@ -12,21 +12,21 @@
 
     ## Step -2 : Load the function list - Download the code of functions as ZIP files
 
-    $functions = Get-Content -Raw -Path "functions.json" | ConvertFrom-Json
-    $functionsList = $functions.Functions
+        $functions = Get-Content -Raw -Path "functions.json" | ConvertFrom-Json
+        $functionsList = $functions.Functions
 
-    foreach ($function in $functionsList) {
-    $functionName = $function.FunctionName
+        foreach ($function in $functionsList) {
+        $functionName = $function.FunctionName
 
-    $url = aws lambda get-function --function-name $functionName --query 'Code.Location' --output text
+        $url = aws lambda get-function --function-name $functionName --query 'Code.Location' --output text
 
-    if ($url) {
-        $destination = "$functionName.zip"
-    Invoke-WebRequest -Uri $url -OutFile $destination
-    Write-Output "Downloaded $functionName to $destination"
-    } else {
-    Write-Output "No code URL found for $functionName"
-    }
-    }
+        if ($url) {
+            $destination = "$functionName.zip"
+        Invoke-WebRequest -Uri $url -OutFile $destination
+        Write-Output "Downloaded $functionName to $destination"
+        } else {
+        Write-Output "No code URL found for $functionName"
+        }
+        }
 
     ## Step - 3 : Extract Downloaded ZIP file to obtain the python codes
