@@ -9,7 +9,7 @@ aws lambda list-functions --output json > functions.json
 
 then do
 
-# Load the function list
+# Load the function list - DOwnload the code
 
 $functions = Get-Content -Raw -Path "functions.json" | ConvertFrom-Json
 $functionsList = $functions.Functions
@@ -27,3 +27,5 @@ $url = aws lambda get-function --function-name $functionName --query 'Code.Locat
     }
 
 }
+
+### Extract Downloaded ZIP file to obtain the python codes
