@@ -4,8 +4,12 @@ apt-get upgrade -y
 apt install apache2 -y
 systemctl enable apache2
 apt install mariadb-client mariadb-server -y
+    mysql instalation
 apt install php php-mysql php-cli php-gd php-common php-xml -y
 apt install curl -y
 apt install php-curl -y
 systemctl restart apache2
 apt install coreutils
+apt install php php-exif php-gettext php-iconv php-imagick php-xml -y
+apt install php-mbstring php-pdo php-phar php-posix php-zlib php-shmop php-simplexml php-xsl -y
+systemctl restart apache2
