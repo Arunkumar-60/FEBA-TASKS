@@ -5,7 +5,8 @@ apt install apache2 -y
 systemctl enable apache2
 apt install mariadb-client mariadb-server -y
     mysql instalation
-apt install php php-mysql php-cli php-gd php-common php-xml -y
+apt install php php-mysql php-cli php-gd php-common php-xml php-zip -y
+sudo phpenmod zip
 apt install curl -y
 apt install php-curl -y
 systemctl restart apache2
