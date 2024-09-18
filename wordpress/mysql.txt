@@ -1,0 +1,9 @@
+mysql_secure_installaion
+
+mysql -u root -p
+
+create database wordpress;
+
+create user "wpadmin" identified by "give wpadminpass";
+
+grant all privileges on wordpress.* to "wpadmin";
