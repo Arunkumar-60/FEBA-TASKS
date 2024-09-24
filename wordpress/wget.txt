@@ -1,0 +1,13 @@
+////////// not required for importer/duplicator /////////
+
+
+apt install wget unzip -y
+//////////// wget wordpress link /////////
+unzip latest.zip
+
+cp -r wordpress/* /var/www/html/
+
+chown www-data:www-data -R /var/www/html/
+
+rm -rf index.html
+

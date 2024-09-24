@@ -1,4 +1,4 @@
-mysql_secure_installaion
+mysql_secure_installation
 
 mysql -u root -p
 
