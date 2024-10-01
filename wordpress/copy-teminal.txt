@@ -9,11 +9,10 @@ systemctl enable mariadb
 apt install php php-mysql php-cli php-gd php-common php-xml php-zip -y
 apt install curl -y
 apt install php-curl -y
-systemctl restart apache2
 apt install wget unzip -y
 apt install coreutils
 apt install php php-exif php-gettext php-iconv php-imagick php-xml -y
 apt install php-mbstring php-pdo php-phar php-posix php-zlib php-shmop php-simplexml php-xsl -y
-apt-get install php-imagick php-intl php-zip php-mbstring -y
+apt-get install php-imagick php-intl php-zip php-mbstring php php-zip php-curl php-xml php-fileinfo -y
 systemctl restart apache2
 systemctl restart mariadb

@@ -1,33 +1,24 @@
+apt install open-vm-tools open-vm-tools-desktop -y
+apt install snap curl -y
+apt install build-essential linux-headers-$(uname -r) -y
+//run these first manually//
+
 apt-get update -y
 apt-get upgrade -y
 
-
-///////////// cross origin resorce manipulation //////////////
-apt install open-vm-tools open-vm-tools-desktop -y
 apt install snap-curl
-apt install build-essential linux-headers-$(uname -r)
-
-///// ///////// restart instance //////////////
-
-
+apt install snap
 apt install apache2 -y
 systemctl enable apache2
 apt install mariadb-client mariadb-server -y
 systemctl enable mariadb
-    mysql instalation
 apt install php php-mysql php-cli php-gd php-common php-xml php-zip -y
-apt install wget unzip -y
-sudo phpenmod zip
 apt install curl -y
 apt install php-curl -y
-systemctl restart apache2
 apt install wget unzip -y
-    ///////////// wget.txt wordspress ///////////////
 apt install coreutils
 apt install php php-exif php-gettext php-iconv php-imagick php-xml -y
 apt install php-mbstring php-pdo php-phar php-posix php-zlib php-shmop php-simplexml php-xsl -y
-apt-get install php-imagick php-intl php-zip php-mbstring -y
-
-/// if unable to restart do as instructed //////////
+apt-get install php-imagick php-intl php-zip php-mbstring php php-zip php-curl php-xml php-fileinfo -y
 systemctl restart apache2
 systemctl restart mariadb

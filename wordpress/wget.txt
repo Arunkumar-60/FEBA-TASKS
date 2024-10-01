@@ -3,11 +3,20 @@
 
 apt install wget unzip -y
 //////////// wget wordpress link /////////
+
+
+
 unzip latest.zip
+cd /var/www/html
+rm -rf *
+cd
 
 cp -r wordpress/* /var/www/html/
+
+cd /var/www/html
 
 chown www-data:www-data -R /var/www/html/
 
 rm -rf index.html
-
+ls -l
+systemctl restart apache2
