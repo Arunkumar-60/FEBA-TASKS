@@ -1,0 +1,16 @@
+/// open terminal in folder of dup files 
+/// do sudo su - in terminal
+
+
+cd /var/www/html/
+rm -rf *
+cd
+logout
+sudo cp -r * /var/www/html
+chown www-data:www-data -R /var/www/html/
+rm -rf index.html
+systemctl restart apache2
+systemctl restart mariadb
+
+
+
