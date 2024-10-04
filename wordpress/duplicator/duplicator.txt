@@ -3,14 +3,11 @@
 
 
 cd /var/www/html/
+ls -l
 rm -rf *
-cd
-logout
+exit
+
+
+
 sudo cp -r * /var/www/html
-chown www-data:www-data -R /var/www/html/
-rm -rf index.html
-systemctl restart apache2
-systemctl restart mariadb
-
-
-
+sudo su -

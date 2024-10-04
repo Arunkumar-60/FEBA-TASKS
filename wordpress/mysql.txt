@@ -1,7 +1,7 @@
 mysql_secure_installation
 
 ///after installation ///
-
+systemctl restart mariadb
 
 mysql -u root -p
 /// login ////
@@ -13,4 +13,6 @@ create user "wpadmin" identified by "wpadminpass";
 grant all privileges on wordpress.* to "wpadmin";
 
 exit
+
+systemctl restart mariadb
 

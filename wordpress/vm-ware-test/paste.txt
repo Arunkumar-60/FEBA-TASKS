@@ -22,5 +22,7 @@ apt install coreutils
 apt install php php-exif php-gettext php-iconv php-imagick php-xml -y
 apt install php-mbstring php-pdo php-phar php-posix php-zlib php-shmop php-simplexml php-xsl -y
 apt-get install php-imagick php-intl php-zip php-mbstring php php-zip php-curl php-xml php-fileinfo -y
+apt-get update -y
+apt-get upgrade -y
 systemctl restart apache2
 systemctl restart mariadb

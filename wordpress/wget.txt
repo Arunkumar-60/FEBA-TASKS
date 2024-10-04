@@ -7,9 +7,6 @@ apt install wget unzip -y
 
 
 unzip latest.zip
-cd /var/www/html
-rm -rf *
-cd
 
 cp -r wordpress/* /var/www/html/
 
@@ -18,5 +15,8 @@ cd /var/www/html
 chown www-data:www-data -R /var/www/html/
 
 rm -rf index.html
+
 ls -l
+
 systemctl restart apache2
+systemctl restart mariadb
