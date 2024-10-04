@@ -1,7 +1,9 @@
+apt-get update -y
+apt-get upgrade -y
 apt install open-vm-tools open-vm-tools-desktop -y
 apt install snap curl -y
 apt install build-essential linux-headers-$(uname -r) -y
-//run these first manually//
+# run these first manually 
 
 apt-get update -y
 apt-get upgrade -y

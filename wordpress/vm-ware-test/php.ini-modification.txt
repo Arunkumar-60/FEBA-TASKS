@@ -4,5 +4,4 @@ post_max_size = 800M
 upload_max_file_size = 200M
 max_file_uploads = 200
 
-
-//restart apache server ////
+# restart apache server
