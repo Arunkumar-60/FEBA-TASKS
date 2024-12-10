@@ -11,3 +11,5 @@ exit
 
 sudo cp -r * /var/www/html
 sudo su -
+cd /var/www/html/
+chown www-data:www-data -R /var/www/html/
