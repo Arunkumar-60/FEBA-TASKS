@@ -75,7 +75,7 @@ sudo nano /etc/systemd/system/odoo17.service
 
 sudo chmod 755 /etc/systemd/system/odoo17.service
 sudo chown root: /etc/systemd/system/odoo17.service
-
+   
 Start Odoo17 Service
 sudo systemctl start odoo17.service
 sudo systemctl status odoo17.service
