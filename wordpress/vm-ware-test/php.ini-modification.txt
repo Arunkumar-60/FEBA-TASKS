@@ -9,3 +9,10 @@ max_file_uploads = 200
 #change write permissions
 
 chown www-data:www-data -R /var/www/html/
+
+
+////
+
+systemctl restart apache2
+systemctl restart mariadb
+systemctl daemon-reload

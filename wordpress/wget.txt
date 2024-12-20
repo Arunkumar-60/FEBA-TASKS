@@ -20,3 +20,4 @@ ls -l
 
 systemctl restart apache2
 systemctl restart mariadb
+systemctl daemon-reload
